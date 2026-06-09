@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="NOVA STORM">
 <meta name="theme-color" content="#00f0ff">
 <meta name="description" content="Nova Storm — neon space shooter with 12 zones, boss battles, weapon upgrades, and endless challenge mode. Free to play.">
-<link rel="manifest" id="pwa-manifest">
+<link rel="manifest" id="pwa-manifest" href="./manifest.json">
 <title>NOVA STORM — Space Invaders</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -8126,7 +8126,8 @@ window.addEventListener('pagehide', () => {
     ]
   };
   const blob = new Blob([JSON.stringify(manifest)], {type:'application/json'});
-  document.getElementById('pwa-manifest').href = URL.createObjectURL(blob);
+  // Static manifest.json used instead of blob — do not override
+  // document.getElementById('pwa-manifest').href = URL.createObjectURL(blob);
 
   const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   if(isTouchDevice) document.body.classList.add('touch-mode');
